@@ -7,14 +7,16 @@ typedef struct Aluno{
 	char * email;
 	char * endereco;
 	char * telefone;
-	int * matricula;
+	int  * matricula;
 	//struct of descendence
 	Aluno *fi_dir;
 	Aluno *fi_esq;
 
-}Aluno;
+}aluno;
 //a
-Aluno * raiz = Null;
+aluno * raiz = Null;
+
+void cadastrar(aluno * raiz, int * matricula) 
 
 
 int main(){
