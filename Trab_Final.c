@@ -13,7 +13,7 @@ typedef struct Aluno{
 	Aluno *fi_esq;
 
 }Aluno;
-
+//a
 Aluno * raiz = Null;
 
 
