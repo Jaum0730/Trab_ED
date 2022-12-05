@@ -138,13 +138,13 @@ NO *Excluir(NO *raiz, int matricula){
 		{
 			//busca na direita
 			raiz->fi_dir = Excluir(raiz->fi_dir, matricula);
-			printf("deu certo");
+		
 
 		}else if (matricula < raiz->matricula)
 		{
 			//busca na esquerda
 			raiz->fi_esq = Excluir(raiz->fi_esq, matricula);
-			printf("deu certo");
+	
 		}
 		else //encontrou o elemento a ser removido
 		{
@@ -153,7 +153,7 @@ NO *Excluir(NO *raiz, int matricula){
 			{
 				free(raiz);
 				raiz = NULL;
-				printf("deu certo");
+			
 				return NULL;
 			}
 			else if (raiz->fi_esq == NULL && raiz->fi_dir != NULL)
@@ -162,7 +162,7 @@ NO *Excluir(NO *raiz, int matricula){
 				NO *aux = raiz->fi_dir; //salva  a sub Arvore direita
 				free(raiz); //apaga o nó onde a fun está no momento
 				raiz = NULL;
-				printf("deu certo");
+		
 				return aux; //retorna pro ant do nó excluido a subArv dir
 			}
 			else if (raiz->fi_esq != NULL && raiz->fi_dir == NULL)
@@ -173,7 +173,6 @@ NO *Excluir(NO *raiz, int matricula){
 				raiz = NULL;
 
 				return aux;
-				printf("deu certo");
 			}
 		}
 		return raiz;
@@ -202,9 +201,9 @@ void in_ordem(NO* aux){
         in_ordem(aux->fi_dir);
     }
 }
-void alterar(int matricula){
+void alterar(int matricula,NO*raiz){
 
-    NO * aux = ler(matricula, raiz);
+    NO * aux = Ler(matricula, raiz);
 
     if(aux == NULL){
         printf("\nNao ha alunos matriculados\n\n");
@@ -220,7 +219,6 @@ void alterar(int matricula){
             scanf("%s", aux->aluno.nome);
         }
         if (matricula == 2){
-
             printf("Digite o e-mail:\n");
             scanf("%s", aux->aluno.email);
             
@@ -228,14 +226,13 @@ void alterar(int matricula){
         if (matricula == 3){
 
             printf("Mudanca cancelada, nenhum dado alterado\n\n");        
-        }
-	 if(matricula == 4){
-		 printf("digite o telefone:\n);
+        }if(matricula == 4){
+		 printf("digite o telefone:\n");
 	         scanf("%s",aux->aluno.telefone);
-	}
-	if(matricula== 5){
-	    printf("digite o endereco:\n);
-            scanf("%s",aux->aluno.endereco);
+	}if(matricula== 5){
+	    printf("digite o endereco:\n");
+	    scanf("%s",aux->aluno.endereco);
+    }
     }
 }
 
@@ -250,7 +247,7 @@ Cadastro1(511227,nome,endereco,telefone,email);
 Cadastro2(511225,nome,endereco,telefone,email);
 
 Excluir(raiz1,511226);
-alterar(511227)
+alterar(511227,raiz1);
 in_ordem(raiz1);
 printf("\n");
 in_ordem(raiz2);
