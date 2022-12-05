@@ -239,6 +239,17 @@ void alterar(int matricula,NO*raiz){
     }
 }
 
+NO *buscar(NO *raiz, int matricula){
+    if(raiz){
+        if(matricula == raiz->aln.matricula)
+            return raiz;
+        else if(matricula < raiz->aln.matricula)
+            return buscar(raiz->esq, matricula);
+        else
+             return buscar(raiz->dir, matricula);
+    }
+    return NULL;
+}
 
 int main(){
 char *nome = "joao";
@@ -247,7 +258,7 @@ char *telefone = "jo";
 char *email = "jao";
 Cadastro1(511226,nome,endereco,telefone,email);
 Cadastro1(511227,nome,endereco,telefone,email);
-Cadastro2(511225,nome,endereco,telefone,email);
+Cadastro1(511225,nome,endereco,telefone,email);
 
 Excluir(raiz1,511226);
 alterar(511227,raiz1);
