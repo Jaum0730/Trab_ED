@@ -217,11 +217,12 @@ void alterar(int matricula,NO*raiz){
 
             printf("Digite o nome:\n");
             scanf("%s", aux->aluno.nome);
+	    printf("%d",aux->aluno.nome);
         }
         if (matricula == 2){
             printf("Digite o e-mail:\n");
             scanf("%s", aux->aluno.email);
-            
+            printf("%d",aux->aluno.email);
         }
         if (matricula == 3){
 
@@ -229,9 +230,11 @@ void alterar(int matricula,NO*raiz){
         }if(matricula == 4){
 		 printf("digite o telefone:\n");
 	         scanf("%s",aux->aluno.telefone);
+		 printf("%d",aux->aluno.telefone);
 	}if(matricula== 5){
 	    printf("digite o endereco:\n");
 	    scanf("%s",aux->aluno.endereco);
+	    printf("%d",aux->aluno.endereco
     }
     }
 }
