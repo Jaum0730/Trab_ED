@@ -2,9 +2,6 @@
 #include <stdlib.h>
 
 
-
-
-
 typedef struct No{
 	
 	int matricula;
@@ -21,6 +18,7 @@ typedef struct No{
 	int *nota_final[10];
 }disciplina;
 	
+	aluno aln;
 	struct No* fi_esq;
 	struct No* fi_dir;
 
@@ -149,6 +147,19 @@ void in_ordem(NO* aux){
     if(aux->fi_dir != NULL){
         in_ordem(aux->fi_dir);
     }
+}
+
+
+NO *buscar(NO *raiz, int matricula){
+    if(raiz){
+        if(matricula == raiz->aln.matricula)
+            return raiz;
+        else if(matricula < raiz->aln.matricula)
+            return buscar(raiz->esq, matricula);
+        else
+             return buscar(raiz->dir, matricula);
+    }
+    return NULL;
 }
 
 
