@@ -202,7 +202,42 @@ void in_ordem(NO* aux){
         in_ordem(aux->fi_dir);
     }
 }
+void alterar(int matricula){
 
+    NO * aux = ler(matricula, raiz);
+
+    if(aux == NULL){
+        printf("\nNao ha alunos matriculados\n\n");
+
+    }else{
+
+        printf("Qual dado deseja modificar? \n[1] Nome \n[2] e-mail \n[3] Cancelar\n \n[4] telefone \n [5] endereco");
+        scanf("%d", &matricula);
+
+        if (matricula == 1){
+
+            printf("Digite o nome:\n");
+            scanf("%s", aux->aluno.nome);
+        }
+        if (matricula == 2){
+
+            printf("Digite o e-mail:\n");
+            scanf("%s", aux->aluno.email);
+            
+        }
+        if (matricula == 3){
+
+            printf("Mudanca cancelada, nenhum dado alterado\n\n");        
+        }
+	 if(matricula == 4){
+		 printf("digite o telefone:\n);
+	         scanf("%s",aux->aluno.telefone);
+	}
+	if(matricula== 5){
+	    printf("digite o endereco:\n);
+            scanf("%s",aux->aluno.endereco);
+    }
+}
 
 
 int main(){
@@ -215,7 +250,7 @@ Cadastro1(511227,nome,endereco,telefone,email);
 Cadastro2(511225,nome,endereco,telefone,email);
 
 Excluir(raiz1,511226);
-
+alterar(511227)
 in_ordem(raiz1);
 printf("\n");
 in_ordem(raiz2);
