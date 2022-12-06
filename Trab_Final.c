@@ -204,7 +204,7 @@ void in_ordem(NO* aux){
 void alterar(int matricula,NO*raiz){
 
     NO * aux = Ler(matricula, raiz);
-
+	char * auxptr;
     if(aux == NULL){
         printf("\nNao ha alunos matriculados\n\n");
 
@@ -216,56 +216,94 @@ void alterar(int matricula,NO*raiz){
         if (matricula == 1){
 
             printf("Digite o nome:\n");
-            scanf("%s", aux->aluno.nome);
-	    printf("%d",aux->aluno.nome);
+            scanf("%s", auxptr);
+            aux->aluno.nome[0] = auxptr;
+	    printf("%s",aux->aluno.nome[0]);
+	    	auxptr = NULL;
         }
         if (matricula == 2){
             printf("Digite o e-mail:\n");
-            scanf("%s", aux->aluno.email);
-            printf("%d",aux->aluno.email);
+            scanf("%s", auxptr);
+            aux->aluno.email[0];
+            printf("%s",aux->aluno.email[0]);
+            auxptr = NULL;
         }
         if (matricula == 3){
 
             printf("Mudanca cancelada, nenhum dado alterado\n\n");        
         }if(matricula == 4){
 		 printf("digite o telefone:\n");
-	         scanf("%s",aux->aluno.telefone);
-		 printf("%d",aux->aluno.telefone);
+	     scanf("%s",auxptr);
+	     aux->aluno.telefone[0] = auxptr;
+		 printf("%s",aux->aluno.telefone[0]);
+		 auxptr = NULL;
 	}if(matricula== 5){
 	    printf("digite o endereco:\n");
-	    scanf("%s",aux->aluno.endereco);
-	    printf("%d",aux->aluno.endereco
+	    scanf("%s",aux->aluno.endereco[0]);
+	    printf("%s",aux->aluno.endereco[0]);
     }
     }
 }
 
 NO *buscar(NO *raiz, int matricula){
     if(raiz){
-        if(matricula == raiz->aln.matricula)
+        if(matricula == raiz->matricula)
             return raiz;
-        else if(matricula < raiz->aln.matricula)
-            return buscar(raiz->esq, matricula);
+        else if(matricula < raiz->matricula)
+            return buscar(raiz->fi_esq, matricula);
         else
-             return buscar(raiz->dir, matricula);
+             return buscar(raiz->fi_dir, matricula);
     }
     return NULL;
 }
 
 int main(){
+
 char *nome = "joao";
 char *endereco = "j";
 char *telefone = "jo";
 char *email = "jao";
+
+
+
 Cadastro1(511226,nome,endereco,telefone,email);
 Cadastro1(511227,nome,endereco,telefone,email);
 Cadastro1(511225,nome,endereco,telefone,email);
 
+Cadastro1(511426,nome,endereco,telefone,email);
+Cadastro1(511627,nome,endereco,telefone,email);
+Cadastro1(513225,nome,endereco,telefone,email);
+
+Cadastro1(526226,nome,endereco,telefone,email);
+Cadastro1(545227,nome,endereco,telefone,email);
+Cadastro1(568225,nome,endereco,telefone,email);
+Cadastro1(511227,nome,endereco,telefone,email);
+
+Cadastro2(511229,nome,endereco,telefone,email);
+Cadastro2(511675,nome,endereco,telefone,email);
+Cadastro2(511467,nome,endereco,telefone,email);
+Cadastro2(511236,nome,endereco,telefone,email);
+
+Cadastro2(511222,nome,endereco,telefone,email);
+Cadastro2(511025,nome,endereco,telefone,email);
+Cadastro2(517827,nome,endereco,telefone,email);
+Cadastro2(510025,nome,endereco,telefone,email);
+
+Cadastro2(514427,nome,endereco,telefone,email);
+Cadastro2(513325,nome,endereco,telefone,email);
+
+
+
 Excluir(raiz1,511226);
 alterar(511227,raiz1);
+printf("\n");
 in_ordem(raiz1);
 printf("\n");
 in_ordem(raiz2);
 
+NO * ptr = buscar(raiz2,514427);
+printf("\n");
+printf("resultado da busca: %i", ptr->matricula);
 
 
 
